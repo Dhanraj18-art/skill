@@ -1,4 +1,6 @@
-let currentUserId = null
+window.onerror = function(msg, url, line) {
+    alert("ERROR: " + msg + " at line " + line);
+};let currentUserId = null
 let selectedUser = null
 
 // ================= INIT =================
