@@ -164,6 +164,53 @@ document.getElementById("findMatches").onclick = async () => {
 `
   
     })
+}window.sendRequest = async function (teacherId) {
+
+    // get current user
+    const { data: userData } = await supabase.auth.getUser()
+    const userId = userData.user.id
+
+    // get learner credits
+    const { data: learner } = await supabase
+        .from("profiles")
+        .select("credits")
+        .eq("id", userId)
+        .single()
+
+    if (!learner || learner.credits < 5) {
+        alert("❌ Not enough credits")
+        return
+    }
+
+    // deduct learner credits
+    await supabase
+        .from("profiles")
+        .update({ credits: learner.credits - 5 })
+        .eq("id", userId)
+
+    // get teacher credits
+    const { data: teacher } = await supabase
+        .from("profiles")
+        .select("credits")
+        .eq("id", teacherId)
+        .single()
+
+    // add credits to teacher
+    await supabase
+        .from("profiles")
+        .update({ credits: (teacher.credits || 0) + 5 })
+        .eq("id", teacherId)
+
+    // store request
+    await supabase
+        .from("requests")
+        .insert([{
+            sender_id: userId,
+            receiver_id: teacherId,
+            status: "pending"
+        }])
+
+    alert("✅ Request sent & 5 credits transferred")
 }
 
 // ================= CHAT =================
