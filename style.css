@@ -37,17 +37,7 @@ input, select, button {
 /* REMOVE CENTER ALIGN */
 
 /* APP CONTAINER (MOBILE FRAME) */
-.app {
-    width: 100%;
-    max-width: 380px;
-    height: 100vh;
-    background: #0f0f0f;
-    border-radius: 20px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
+
 
 /* CONTENT AREA */
 .content {
