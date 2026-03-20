@@ -5,15 +5,36 @@
 
 /* BODY */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: white;
+  margin: 0;
+  font-family: Arial;
+  background: #0f172a;
+  color: white;
 }
+
+/* MOBILE APP CONTAINER */
+.app {
+  max-width: 420px;
+  margin: auto;
+  min-height: 100vh;
+  background: #020617;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 15px;
+  padding-bottom: 80px;
+}
+
+/* FIX INPUTS */
+input, select, button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* REMOVE CENTER ALIGN */
 
 /* APP CONTAINER (MOBILE FRAME) */
 .app {
