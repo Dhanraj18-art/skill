@@ -67,7 +67,7 @@ async function addEvent() {
 
     const { error } = await supabaseClient.from("events").insert([
         {
-            user_id: user.id,
+            user_id: user_id,
             title: title,
             date: date
         }
