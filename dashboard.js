@@ -227,6 +227,6 @@ document.getElementById("sendMsg").onclick = async () => {
 
 // ================= LOGOUT =================
 function logout() {
-    supabaseClient.auth.logout()
+    supabaseClient.auth.signOut()
     window.location.href = "login.html"
 }
