@@ -112,41 +112,32 @@
 </head>
 <body>
 
-<div class="app">
-  <div class="card">
+<div class="card">
 
-    <img src="logo.png" class="logo">
-    <h2>SkillSwap</h2>
+  <img src="logo.png">
+  <h2>Login</h2>
 
-    <input id="email" type="email" placeholder="Email">
-    <input id="password" type="password" placeholder="Password">
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
 
-    <button onclick="login()">Login</button>
+  <button onclick="login()">Login</button>
 
-    <div onclick="window.location.href='signup.html'">
-  Create Account
-</div>
-  </div>
+  <div class="link" onclick="goSignup()">Create Account</div>
+
 </div>
 
 <script>
-const SUPABASE_URL = "https://bfnvumejiagsrzegwuqq.supabase.co"
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJmbnZ1bWVqaWFnc3J6ZWd3dXFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5MTY5ODIsImV4cCI6MjA4OTQ5Mjk4Mn0.1AIOCNZGSChd2iUsKnl19SSE4BXeRGe-GP0WdHlTMwA"
+const supabase = window.supabase.createClient(
+  "https://bfnvumejiagsrzegwuqq.supabase.co",
+   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJmbnZ1bWVqaWFnc3J6ZWd3dXFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5MTY5ODIsImV4cCI6MjA4OTQ5Mjk4Mn0.1AIOCNZGSChd2iUsKnl19SSE4BXeRGe-GP0WdHlTMwA"
 
-const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-)</script>
-    
-/*********
- * LOGIN
- *********/
+)
+
 async function login() {
-
   const email = document.getElementById("email").value
   const password = document.getElementById("password").value
 
-  const { data, error } = await supabase.auth.signInWithPassword({
+  const { error } = await supabase.auth.signInWithPassword({
     email,
     password
   })
@@ -159,27 +150,10 @@ async function login() {
   window.location.href = "dashboard.html"
 }
 
-/*********
- * SIGNUP
- *********/
-async function signup() {
-
-  const email = document.getElementById("email").value
-  const password = document.getElementById("password").value
-
-  const { data, error } = await supabase.auth.signUp({
-    email,
-    password
-  })
-
-  if (error) {
-    alert(error.message)
-    return
-  }
-
-  alert("Signup successful ✅ (Check email if confirmation enabled)")
+function goSignup() {
+  window.location.href = "signup.html"
 }
 </script>
-<script src="auth.js"></script>
+
 </body>
 </html>
