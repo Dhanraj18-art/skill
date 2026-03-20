@@ -110,32 +110,77 @@
         }
     </style>
 </head>
-
 <body>
 
-    <div class="app">
-        <div class="container">
+<div class="app">
+  <div class="card">
 
-            <div class="card">
+    <img src="logo.png" class="logo">
+    <h2>SkillSwap</h2>
 
-                <div class="logo">⚡ SkillSwap</div>
-                <h2>Login</h2>
+    <input id="email" type="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
 
-                <input id="email" type="email" placeholder="Enter Email">
-                <input id="password" type="password" placeholder="Enter Password">
+    <button onclick="login()">Login</button>
 
-                <button onclick="login()">Login</button>
-                
-<div onclick="Signup()">Create Account
-               
-
-            </div>
-
-        </div>
+    <div class="link" onclick="signup()">
+      Create Account
     </div>
 
+  </div>
+</div>
+
+<script>
+const SUPABASE_URL = "https://bfnvumejiagsrzegwuqq.supabase.co"
+const SUPABASE_KEY = "YOUR_KEY"
+
+const supabase = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+)
+
+/*********
+ * LOGIN
+ *********/
+async function login() {
+
+  const email = document.getElementById("email").value
+  const password = document.getElementById("password").value
+
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  })
+
+  if (error) {
+    alert(error.message)
+    return
+  }
+
+  window.location.href = "dashboard.html"
+}
+
+/*********
+ * SIGNUP
+ *********/
+async function signup() {
+
+  const email = document.getElementById("email").value
+  const password = document.getElementById("password").value
+
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password
+  })
+
+  if (error) {
+    alert(error.message)
+    return
+  }
+
+  alert("Signup successful ✅ (Check email if confirmation enabled)")
+}
+</script>
 
 </body>
-<script src="auth.js"></script>
-
 </html>
