@@ -6,7 +6,7 @@ let selectedUser = null
 // ================= INIT =================
 async function init() {
 
-    const { data, error } = await supabase.auth.getUser()
+    const { data, error } = await supabaseClient.auth.getUser()
 
     if (!data.user) {
         window.location.href = "login.html"
@@ -183,7 +183,7 @@ document.getElementById("findMatches").onclick = async () => {
     }
 
     // deduct learner credits
-    await supabase
+    await supabaseClient
         .from("profiles")
         .update({ credits: learner.credits - 5 })
         .eq("id", userId)
@@ -196,13 +196,13 @@ document.getElementById("findMatches").onclick = async () => {
         .single()
 
     // add credits to teacher
-    await supabase
+    await supabaseClient
         .from("profiles")
         .update({ credits: (teacher.credits || 0) + 5 })
         .eq("id", teacherId)
 
     // store request
-    await supabase
+    await supabaseClient
         .from("requests")
         .insert([{
             sender_id: userId,
@@ -225,7 +225,7 @@ async function loadMessages() {
 
     if (!selectedUser) return
 
-    const { data } = await supabase
+    const { data } = await supabaseClient
         .from("messages")
         .select("*")
         .or(`sender_id.eq.${currentUserId},receiver_id.eq.${currentUserId}`)
@@ -270,7 +270,7 @@ document.getElementById("sendMsg").onclick = async () => {
         return
     }
 
-    await supabase
+    await supabaseClient
         .from("messages")
         .insert([{
             sender_id: currentUserId,
