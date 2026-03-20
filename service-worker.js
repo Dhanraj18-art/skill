@@ -1,4 +1,4 @@
-const CACHE_NAME = "skillswap-cache-v8";
+const CACHE_NAME = "skillswap-cache-v9";
 
 const urlsToCache = [
     "/skill/",
