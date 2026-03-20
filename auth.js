@@ -46,7 +46,7 @@ async function loadEvents() {
     const { data, error } = await supabaseClient
         .from("events")
         .select("*")
-        .eq("user_id", user.id)
+        .eq("user_id", user_id)
         .order("date", { ascending: true })
 
     const container = document.getElementById("events")
