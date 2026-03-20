@@ -1,22 +1,14 @@
-/* RESET */
-* {
-    box-sizing: border-box;
-}
-
-/* BODY */
 body {
   margin: 0;
   font-family: Arial;
-  background: #0f172a;
+  background: #020617;
   color: white;
 }
 
-/* MOBILE APP CONTAINER */
+/* FULL SCREEN APP */
 .app {
-  max-width: 420px;
-  margin: auto;
+  width: 100%;
   min-height: 100vh;
-  background: #020617;
   display: flex;
   flex-direction: column;
 }
@@ -24,10 +16,17 @@ body {
 /* CONTENT */
 .content {
   flex: 1;
-  padding: 15px;
-  padding-bottom: 80px;
+  padding: 20px;
 }
 
+/* CENTER ONLY LANDING */
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 /* FIX INPUTS */
 input, select, button {
   width: 100%;
