@@ -153,6 +153,16 @@ document.getElementById("findMatches").onclick = async () => {
             </div>
             `
         }
+        container.innerHTML += `
+  <div class="user-card">
+    <b>${user.name}</b><br>
+    Teaches: ${user.teaches}<br>
+    <button onclick="sendRequest('${user.id}')">
+      Request (5 credits)
+    </button>
+  </div>
+`
+  
     })
 }
 
