@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SkillSwap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png">
+</head>
+
+<body>
+    <div class="app">
+
+        <div class="content">
+
+            <!-- PROFILE -->
+            <div id="profile" class="section active">
+                <div class="card profile-card">
+
+                    <!-- HEADER -->
+                    <div class="profile-header">
+                        <div class="avatar">👤</div>
+                        <h2 id="pName">Your Name</h2>
+                        <p id="pBio">Add your bio...</p>
+                    </div>
+
+                    <!-- CREDITS -->
+                    <div class="credits-box">
+                        ⭐ Credits: <span id="credits">0</span>
+                    </div>
+
+                    <!-- SKILLS -->
+                    <div class="skills">
+                        <h4>🎓 Teaches</h4>
+                        <p id="pTeach">-</p>
+
+                        <h4>📚 Learns</h4>
+                        <p id="pLearn">-</p>
+                    </div>
+
+                    <!-- EDIT -->
+                    <div class="edit-box">
+                        <input id="name" placeholder="Name">
+                        <input id="bio" placeholder="Bio">
+                        <input id="teaches" placeholder="Teaches (comma)">
+                        <input id="learns" placeholder="Learns (comma)">
+                        <button onclick="saveProfile()">Save Profile</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAT -->
+            <div id="chat" class="section">
+                <div class="card">
+                    <h3>💬 Chat</h3>
+                    <div id="chatBox" class="chatBox"></div>
+                    <input id="chatInput" placeholder="Message">
+                    <button id="sendMsg">Send</button>
+                </div>
+            </div>
+
+            <!-- MATCHES -->
+            <div id="matches" class="section">
+                <div class="card">
+                    <h3>🤝 Matches</h3>
+                    <button id="findMatches">Find Matches</button>
+                    <div id="matchContainer"></div>
+                </div>
+            </div>
+
+            <!-- USERS -->
+            <div id="users" class="section">
+                <div class="card">
+                    <h3>🌐 Explore Users</h3>
+                    <div id="allUsers"></div>
+                </div>
+            </div>
+
+            <!-- CALENDAR -->
+            <div id="calendarTab" class="section">
+                <div class="card">
+                    <h2>📅 Calendar</h2>
+
+                    <div id="calendar"></div>
+
+                    <select id="selectUser"></select>
+
+                    <input id="note" placeholder="Enter note">
+
+                    <button onclick="saveEvent()">Save Event</button>
+                    <button onclick="startInstantMeeting()">Start Instant Meeting</button>
+
+                    <button onclick="history.back()">← Back</button>
+
+                    <div id="instantLink"></div>
+                    <div id="eventsList"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BOTTOM NAV -->
+        <div class="bottomNav">
+            <button onclick="showTab('profile')">👤</button>
+            <button onclick="showTab('chat')">💬</button>
+            <button onclick="showTab('matches')">🤝</button>
+            <button onclick="showTab('users')">🌐</button>
+            <button onclick="showTab('calendarTab')">📅</button>
+            <button onclick="logout()">🚪</button>
+        </div>
+    </div>
+    <script>
+        function showTab(id) {
+            document.querySelectorAll(".section").forEach(sec => {
+                sec.classList.remove("active")
+            })
+            document.getElementById(id).classList.add("active")
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="dashboard.js"></script>
+    <script src="calendar.js"></script>
+    <script src="supabase.js"></script>
+</body>
+
+</html>

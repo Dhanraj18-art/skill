@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="logo.png">
+<div class="mobile">
+
+    <div class="title">🔍 Matches</div>
+
+    <button onclick="findMatches()">Find Matches</button>
+
+    <div id="matches"></div>
+    <button onclick="startChat('${userId}')">Chat</button>
+
+    <button onclick="go('dashboard.html')">⬅ Back</button>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="dashboard.js"></script>
+<script>
+    function go(page) {
+        window.location.href = page
+    }
+</script>

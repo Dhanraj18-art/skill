@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SkillSwap Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <link rel="icon" href="logo.png">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #111;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        /* MOBILE APP FRAME */
+        .app {
+            width: 100%;
+            max-width: 380px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0f0f0f;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            padding: 20px;
+        }
+
+        .card {
+            background: #1c1c1e;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #00ffcc;
+            font-weight: bold;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 10px;
+            background: #2c2c2e;
+            color: white;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border: 1px solid #00ffcc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(45deg, #00ffcc, #00ccff);
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:active {
+            transform: scale(0.96);
+        }
+
+        .link {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .link:hover {
+            color: #00ffcc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app">
+        <div class="container">
+
+            <div class="card">
+
+                <div class="logo">⚡ SkillSwap</div>
+                <h2>Login</h2>
+
+                <input id="email" type="email" placeholder="Enter Email">
+                <input id="password" type="password" placeholder="Enter Password">
+
+                <button onclick="login()">Login</button>
+
+                <div class="link" onclick="goSignup()">
+                    Create Account
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+<script src="auth.js"></script>
+
+</html>
