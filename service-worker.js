@@ -1,7 +1,8 @@
-const CACHE_NAME = "skillswap-cache-v6";
+const CACHE_NAME = "skillswap-cache-v7";
 
 const urlsToCache = [
     "/skill/",
+    "/skill/signup.html",
     "/skill/index.html",
     "/skill/login.html",
     "/skill/dashboard.html",
