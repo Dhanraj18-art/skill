@@ -1,0 +1,20 @@
+{
+    "name": "SkillSwap",
+    "short_name": "SkillSwap",
+    "start_url": "/skill/index.html",
+    "display": "standalone",
+    "background_color": "#020617",
+    "theme_color": "#020617",
+    "icons": [
+        {
+            "src": "/skill/logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/skill/logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

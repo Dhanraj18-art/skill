@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Signup - SkillSwap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        body {
+            margin: 0;
+            background: #020617;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 350px;
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: none;
+            background: #020617;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(45deg, #22c55e, #38bdf8);
+            color: white;
+            font-weight: bold;
+        }
+
+        .link {
+            margin-top: 15px;
+            color: #aaa;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h2>Create Account</h2>
+
+        <!-- LOGIN -->
+
+        <!-- SIGNUP -->
+        <div id="signupBox" class="hidden fade">
+            <input id="signupEmail" placeholder="Email">
+            <input id="signupPassword" type="password" placeholder="Password">
+
+            <button onclick="signup()">signup</button>
+
+            <div class="link" onclick="goLogin()">
+                Back to Login
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        /***********************
+        * SWITCH UI
+        ***********************/
+        function showSignup() {
+            document.getElementById("loginBox").classList.add("hidden")
+            document.getElementById("signupBox").classList.remove("hidden")
+            document.getElementById("title").innerText = "Create Account"
+        }
+
+
+
+        /***********************
+        * LOGIN
+        ***********************/
+
+        /***********************
+        * SIGNUP
+        ***********************/
+        function goLogin() {
+            window.location.href = "login.html"
+        }
+        async function signup() {
+
+            const email = document.getElementById("signupEmail").value
+            const password = document.getElementById("signupPassword").value
+
+            const { error } = await supabaseClient.auth.signUp({
+                email,
+                password
+            })
+
+            if (error) {
+                alert(error.message)
+                return
+            }
+
+            alert("Signup successful ✅")
+
+            showLogin()
+        }
+    </script>
+    <script src="supabase.js"></script>
+
+</body>
+
+</html>
