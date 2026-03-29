@@ -7,7 +7,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #111;
+    background-image: url("png.jpg");
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@ body {
     width: 100%;
     max-width: 380px;
     height: 100vh;
-    background: #0f0f0f;
+    background-image: url("png.jpg")
     border-radius: 20px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
     overflow: hidden;
