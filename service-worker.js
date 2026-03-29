@@ -11,6 +11,7 @@ const urlsToCache = [
     "/skill/supabase.js",
     "/skill/manifest.json",
     "/skill/logo.png"
+      "/skill/jpg.png"
 ];
 
 /***********************
